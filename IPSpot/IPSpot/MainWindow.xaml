@@ -1,0 +1,256 @@
+﻿<Window x:Class="IPSpot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        WindowStartupLocation="CenterScreen"
+        xmlns:local="clr-namespace:IPSpot"
+        Background="Transparent"
+        AllowsTransparency="False"
+        Loaded="Window_Loaded"
+        Icon="IPSpotIcon.ico"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        mc:Ignorable="d"
+        Title="IPSpot"
+        Height="500"
+        Width="400">
+
+    <Border Background="AliceBlue" CornerRadius="0">
+
+        <Grid>
+
+            <Image Source="Img/BackImage.png" Opacity="0.1" Stretch="None" HorizontalAlignment="Left"/>
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="45"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="IPSpot" VerticalAlignment="Center" FontWeight="Medium" Margin="10 0 0 0"/>
+
+                    <Button Grid.Column="1" Cursor="Hand" Click="Exit" Content="✖" FontSize="10" FontFamily="Segoe UI">
+
+                        <FrameworkElement.Resources>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Control.Background" Value="Transparent"/>
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Control.Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="Background" Value="Red"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </FrameworkElement.Resources>
+
+                    </Button>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="IPText"  Grid.Column="0" VerticalAlignment="Center" FontWeight="Medium"
+                                       HorizontalAlignment="Right" Text="Введите IP: " FontSize="15"/>
+
+                            <TextBox x:Name="TextBox" Grid.Column="1" Padding="2" HorizontalAlignment="Left" Width="165"
+                                     VerticalAlignment="Center" FontWeight="Medium" HorizontalContentAlignment="Left"
+                                     Margin="0 0 15 0" FontSize="20" TextChanged="TextBox_TextChanged">
+
+                                <FrameworkElement.Resources>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Style.Resources>
+                                            <Style TargetType="{x:Type Border}">
+                                                <Setter Property="CornerRadius" Value="6" />
+                                            </Style>
+                                        </Style.Resources>
+                                    </Style>
+                                </FrameworkElement.Resources>
+                                
+                            </TextBox>
+
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="CityText" Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Right"
+                                       Text="Город: " FontSize="14"/>
+
+                            <TextBlock x:Name="CityTextInput" Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Left"
+                                       FontSize="14"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="RegionText" Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Right"
+                                       Text="Регион: " FontSize="14"/>
+
+                            <TextBlock x:Name="RegionTextInput" Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Left"
+                                       FontSize="14"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="CountryText" Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Right"
+                                       Text="Страна: " FontSize="14"/>
+
+                            <TextBlock x:Name="CountryTextInput" Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Left"
+                                       FontSize="14"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="4">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="CurrencyText" Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Right"
+                                       Text="Валюта: " FontSize="14"/>
+
+                            <TextBlock x:Name="CurrencyTextInput" Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Left"
+                                       FontSize="14"/>
+
+                        </Grid>
+
+                        <Grid Grid.Row="5">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="InternetText" Grid.Column="0"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Right"
+                                       Text="Провайдер: " FontSize="14"/>
+
+                            <TextBlock x:Name="InternetTextInput" Grid.Column="1"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Medium"
+                                       HorizontalAlignment="Left"
+                                       FontSize="14"/>
+
+                        </Grid>
+
+                        <Button x:Name="SearchBtn" Click="SearchBtn_Click" Cursor="Hand" Grid.Row="6" Margin="35 6 35 6" Content="Поиск" Style="{StaticResource ButtonStyle1}"/>
+
+                        <Grid Grid.Row="7">
+
+                            <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Orientation="Horizontal">
+
+                                <RadioButton x:Name="RussianRadioBtn" Click="RussianRadioBtn_Click" IsChecked="True" Content="Русский" Margin="0 0 15 0" FontWeight="Medium" Cursor="Hand">
+
+                                    
+
+                                </RadioButton>
+
+                                <RadioButton x:Name="EnglishRadioBtn" Click="EnglishRadioBtn_Click" Content="English" Margin="15 0 0 0" FontWeight="Medium" Cursor="Hand">
+                                    
+                                    
+                                </RadioButton>
+                                
+                            </StackPanel>
+                            
+                        </Grid>
+                        
+                    </Grid>
+
+                    <WebBrowser Grid.Column="1" Margin="15" x:Name="WebBrowserInput" Visibility="Hidden"/>
+                    
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+        
+    </Border>
+    
+</Window>
